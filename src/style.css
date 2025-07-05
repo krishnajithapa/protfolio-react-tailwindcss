@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00df9a;
+}
+
+body {
+  font-family: "Saira";
+}
