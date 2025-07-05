@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
-const Navbar = () => {
+const Menu = () => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
 
@@ -9,19 +9,26 @@ const Navbar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setNav(false); // Close the mobile menu after scrolling
+  };
 
   // Array containing navigation items
   const navItems = [
     { id: 1, text: "About" },
-    { id: 2, text: "Potfolio" },
+    { id: 2, text: "Portfolio" },
     { id: 3, text: "Skills" },
     { id: 4, text: "Contact" },
   ];
 
   return (
-    <div className="bg-black flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
+    <div className="bg-black sticky top-0 flex justify-between items-center h-24 px-4 text-white">
       {/* Logo */}
-      <h1 className="w-full text-3xl font-bold text-[#00df9a]">
+      <h1
+        onClick={() => scrollToSection("about")}
+        className="w-full text-3xl font-bold text-primary"
+      >
         Krishna Thapa
       </h1>
 
@@ -30,6 +37,7 @@ const Navbar = () => {
         {navItems.map((item) => (
           <li
             key={item.id}
+            onClick={() => scrollToSection(item.text.toLowerCase())}
             className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
           >
             {item.text}
@@ -44,7 +52,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <ul
-        className={`md:hidden w-full h-[40vh] text-center left-0 text-white transition-all ease-in-out duration-500 ${
+        className={`md:hidden w-full  text-center left-0 text-white transition-all ease-in-out duration-500 ${
           nav ? "absolute top-24 bg-black" : "fixed top-[-100%]"
         }`}
       >
@@ -53,6 +61,7 @@ const Navbar = () => {
         {navItems.map((item) => (
           <li
             key={item.id}
+            onClick={() => scrollToSection(item.text.toLowerCase())}
             className="p-4 border-b hover:bg-[#00df9a] duration-300 hover:text-black cursor-pointer"
           >
             {item.text}
@@ -63,4 +72,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Menu;
