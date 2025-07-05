@@ -31,7 +31,7 @@ function About() {
       <div>
         <img
           className="border-8 rounded-[100%] h-50 w-50 border-primary"
-          src="src\assets\profile.jpg"
+          src="src/assets/profile.jpg"
           alt=""
         />
       </div>
