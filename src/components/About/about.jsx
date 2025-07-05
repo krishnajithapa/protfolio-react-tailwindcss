@@ -1,10 +1,11 @@
 import React from "react";
+import profileImage from "../../assets/profile.jpg";
 
 function About() {
   return (
     <div
       id="about"
-      className="p-[1em]  w-dvw bg-green-50 flex flex-col-reverse sm:flex-row items-center justify-evenly
+      className="px-[1rem] py-16 scroll-mt-[6rem] w-dvw bg-green-50 flex flex-col-reverse sm:flex-row items-center justify-evenly
       "
     >
       <div className="text-center">
@@ -31,7 +32,7 @@ function About() {
       <div>
         <img
           className="border-8 rounded-[100%] h-50 w-50 border-primary"
-          src="./src/assets/profile.jpg"
+          src={profileImage}
           alt=""
         />
       </div>
