@@ -1,40 +1,45 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * AnimatedCard component animates its children into view when scrolled into viewport.
+ * AnimatedCard component animates its children into view every time it scrolls into the viewport.
  * @param {ReactNode} children - Content to render inside the card.
  * @param {number} delay - Optional delay (ms) before animation starts.
  */
 const AnimatedCard = ({ children, delay = 0 }) => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const timeoutRef = useRef();
 
   useEffect(() => {
-    // Callback for IntersectionObserver
+    const el = ref.current;
+    if (!el) return;
+
     const handleIntersect = ([entry]) => {
-      if (entry.isIntersecting) setIsVisible(true);
+      if (entry.isIntersecting) {
+        timeoutRef.current = setTimeout(() => setIsVisible(true), delay);
+      } else {
+        clearTimeout(timeoutRef.current);
+        setIsVisible(false);
+      }
     };
 
     const observer = new IntersectionObserver(handleIntersect, {
       threshold: 0.1,
     });
+    observer.observe(el);
 
-    const element = ref.current;
-    if (element) observer.observe(element);
-
-    // Cleanup observer on unmount
     return () => {
-      if (element) observer.unobserve(element);
       observer.disconnect();
+      clearTimeout(timeoutRef.current);
     };
-  }, []); // Empty dependency array: run only once on mount
+  }, [delay]);
 
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-in-out transform
-        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+      className={`transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] transform
+        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
     >
       {children}
     </div>

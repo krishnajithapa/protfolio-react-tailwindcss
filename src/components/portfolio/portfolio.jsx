@@ -47,7 +47,7 @@ function ProjectCard({ project, delay }) {
         className="block group"
       >
         <div className="flex flex-col h-full bg-white rounded-2xl shadow-md border border-gray-200 transition-transform transform group-hover:scale-[1.02] group-hover:shadow-lg p-6">
-          <div className="flex items-center space-x-4 mb-4">
+          <div className="flex items-center space-x-4 mb-0">
             <img
               src={logo}
               alt={title}
@@ -67,16 +67,14 @@ function ProjectCard({ project, delay }) {
 export default function Portfolio() {
   return (
     <section id="portfolio" className="scroll-mt-[6em]">
-      {/* Section Title */}
-      <Title title=" Apps I've worked on" />
+      <Title title="Apps I've worked on" />
 
-      {/* Projects Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <ProjectCard
             key={project.title}
             project={project}
-            delay={index * 100}
+            delay={index * 100} // staggered animation
           />
         ))}
       </div>
