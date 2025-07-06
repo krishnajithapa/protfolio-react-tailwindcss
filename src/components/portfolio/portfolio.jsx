@@ -74,7 +74,7 @@ export default function Portfolio() {
           <ProjectCard
             key={project.title}
             project={project}
-            delay={index * 100} // staggered animation
+            delay={index * 50} // staggered animation
           />
         ))}
       </div>

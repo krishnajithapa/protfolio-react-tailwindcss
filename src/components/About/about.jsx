@@ -10,7 +10,7 @@ function About() {
   return (
     <div
       id="about"
-      className="scroll-mt-32 flex flex-col-reverse sm:flex-row items-center justify-evenly pt-4"
+      className="scroll-mt-32 flex flex-col-reverse sm:flex-row items-center justify-evenly h-[80vh]"
     >
       <div className="text-center">
         <h1 className="font-bold text-4xl my-6">Flutter Developer</h1>
