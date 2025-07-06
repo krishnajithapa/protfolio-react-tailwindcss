@@ -10,9 +10,9 @@ function About() {
   return (
     <div
       id="about"
-      className="scroll-mt-32 flex flex-col-reverse sm:flex-row items-center justify-evenly h-[80vh]"
+      className="scroll-mt-32 flex flex-col-reverse sm:flex-row items-center justify-evenly sm:h-[80vh]"
     >
-      <div className="text-center">
+      <div className="text-center sm:pr-4">
         <h1 className="font-bold text-4xl my-6">Flutter Developer</h1>
         <p className="sm:w-[60vw] text-justify mx-auto">
           Accomplished Flutter Developer with 3 years of experience in building
@@ -34,7 +34,7 @@ function About() {
       </div>
       <div>
         <img
-          className="border-8 rounded-full h-[30vh] sm:h-[60vh] aspect-square border-primary object-cover"
+          className="border-8 rounded-full h-[30vh] sm:h-[40vh] md:h-[60vh] aspect-square border-primary object-cover"
           src={Image.profile}
           alt="Profile"
         />
