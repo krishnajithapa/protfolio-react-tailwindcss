@@ -1,6 +1,6 @@
-import React from "react";
 import Title from "../title/title";
 
+// Experience data: List of companies, roles, and responsibilities
 const experiences = [
   {
     company: "Vanilla Tech – Durbar Marg",
@@ -44,34 +44,40 @@ const experiences = [
   },
 ];
 
-const Experience = () => {
-  return (
-    <div id="experience" className="space-y-8 scroll-mt-[6em] pt-6">
-      <Title title="Project Experience" />
-      {experiences.map((exp, idx) => (
-        <div key={idx}>
-          <h3 className="text-xl font-bold text-gray-800">{exp.company}</h3>
-          <div className="mt-2 space-y-6">
-            {exp.roles.map((role, i) => (
-              <div key={i}>
-                <h4 className="text-lg font-semibold text-gray-700">
-                  {role.title}{" "}
-                  <span className="text-sm text-gray-500">
-                    | {role.duration}
-                  </span>
-                </h4>
-                <ul className="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                  {role.points.map((point, j) => (
-                    <li key={j}>{point}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
+// RoleItem: Renders a single role with title, duration, and bullet points
+const RoleItem = ({ title, duration, points }) => (
+  <div>
+    <h4 className="text-lg font-semibold text-gray-700">
+      {title} <span className="text-sm text-gray-500">| {duration}</span>
+    </h4>
+    <ul className="list-disc list-inside mt-2 text-gray-600 space-y-1">
+      {points.map((point, idx) => (
+        <li key={idx}>{point}</li>
+      ))}
+    </ul>
+  </div>
+);
+
+// ExperienceItem: Renders a company and its roles
+const ExperienceItem = ({ company, roles }) => (
+  <div>
+    <h3 className="text-xl font-bold text-gray-800">{company}</h3>
+    <div className="mt-2 space-y-6">
+      {roles.map((role, idx) => (
+        <RoleItem key={idx} {...role} />
       ))}
     </div>
-  );
-};
+  </div>
+);
+
+// Experience: Main component rendering all experiences
+const Experience = () => (
+  <div id="experience" className="space-y-8 scroll-mt-[6em] pt-6">
+    <Title title="Project Experience" />
+    {experiences.map((exp, idx) => (
+      <ExperienceItem key={exp.company} {...exp} />
+    ))}
+  </div>
+);
 
 export default Experience;
