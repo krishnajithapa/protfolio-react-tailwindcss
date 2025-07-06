@@ -66,7 +66,7 @@ function ProjectCard({ project, delay }) {
 // Portfolio section component
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="scroll-mt-[6em]">
+    <section id="portfolio" className="scroll-mt-24">
       <Title title="Apps I've worked on" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

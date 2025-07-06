@@ -10,7 +10,7 @@ function About() {
   return (
     <div
       id="about"
-      className="scroll-mt-32 flex flex-col-reverse sm:flex-row items-center justify-evenly sm:h-[80vh]"
+      className="scroll-mt-24 flex flex-col-reverse sm:flex-row items-center justify-evenly sm:h-[80vh] pt-8"
     >
       <div className="text-center sm:pr-4">
         <h1 className="font-bold text-4xl my-6">Flutter Developer</h1>
@@ -34,7 +34,7 @@ function About() {
       </div>
       <div>
         <img
-          className="border-8 rounded-full h-[30vh] sm:h-[40vh] md:h-[60vh] aspect-square border-primary object-cover"
+          className="border-8 rounded-full h-[30vh] sm:h-[40vh] md:h-[60vh] aspect-square border-primary object-cover sm"
           src={Image.profile}
           alt="Profile"
         />

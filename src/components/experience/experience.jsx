@@ -72,7 +72,7 @@ const ExperienceItem = ({ company, roles }) => (
 
 // Experience: Main component rendering all experiences
 const Experience = () => (
-  <div id="experience" className="space-y-8 scroll-mt-[6em] pt-6">
+  <div id="experience" className="space-y-8 scroll-mt-24 pt-6">
     <Title title="Project Experience" />
     {experiences.map((exp, idx) => (
       <ExperienceItem key={exp.company} {...exp} />

@@ -27,7 +27,7 @@ function Footer() {
   ];
 
   return (
-    <footer id="contact" className="py-8 bg-black">
+    <footer id="contact" className="py-8 bg-black scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-evenly items-center">
           {/* Contact Information */}

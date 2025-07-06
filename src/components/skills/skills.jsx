@@ -46,7 +46,7 @@ export default function SkillsGrid() {
   ];
 
   return (
-    <div id="skills" className="scroll-mt-[6rem]">
+    <div id="skills" className="scroll-mt-24 pb-8">
       <Title title="My Skills" />
       <div className="flex flex-wrap gap-3 pt-6">
         {skills.map((skill, idx) => {
