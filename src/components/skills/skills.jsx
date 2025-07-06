@@ -7,6 +7,12 @@ import Title from "../title/title";
 export default function SkillsGrid() {
   // List of skills to display
   const skills = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Redux",
+    "Tailwind CSS",
     "Flutter",
     "Dart",
     "Provider",
@@ -18,7 +24,6 @@ export default function SkillsGrid() {
     "Fastlane",
     "CodeMagic",
     "GitHub",
-    "GitLab",
     "Unit Testing",
     "Integration Testing",
     "Performance Optimization",
