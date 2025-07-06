@@ -18,12 +18,13 @@ const Menu = () => {
   const navItems = [
     { id: 1, text: "About" },
     { id: 2, text: "Portfolio" },
-    { id: 3, text: "Skills" },
-    { id: 4, text: "Contact" },
+    { id: 3, text: "Experience" },
+    { id: 4, text: "Skills" },
+    { id: 5, text: "Contact" },
   ];
 
   return (
-    <div className="bg-black sticky top-0 flex justify-between items-center h-24 px-4 text-white">
+    <div className="bg-black z-50 sticky top-0 flex justify-between items-center h-24 px-4 text-white">
       {/* Logo */}
       <h1
         onClick={() => scrollToSection("about")}
@@ -47,7 +48,7 @@ const Menu = () => {
 
       {/* Mobile Navigation Icon */}
       <div onClick={handleNav} className="block md:hidden">
-        {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+        {nav ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
       </div>
 
       {/* Mobile Navigation Menu */}
